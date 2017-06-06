@@ -1,0 +1,10 @@
+njrc-eng-snippets
+===================
+
+NJRC-ENG 用にカスタマイズした neosnippet用の snipettes.
+
+Requirements
+===================
+
+- Shougo/neosnippets
+- honza/vim-snippets

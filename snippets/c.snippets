@@ -1,0 +1,147 @@
+#####################################################################
+# Java Style Doxygen documentation
+#####################################################################
+# file definition with Doxygen documentation
+snippet jdfi
+options head
+	/**
+	 * @file   
+	 * @brief  ${1:Brief file description here}
+	 *
+	 *  ${2:Detailed description of the file}
+	 *
+	 * @author  ${3: your name}
+	 * @date    `strftime("%Y-%m-%d")`
+	 *
+	 * Copyright (c) `strftime("%Y")` Nagano Japan Radio Engineering Co.,Ltd.
+	 */
+
+# function definition with Doxygen documentation
+snippet jdfun0
+options head
+	/**
+	 * @brief ${1:Brief function description here}
+	 *
+	 *  ${2:Detailed description of the function}
+	 *
+	 * @return ${3:Return parameter description}
+	 */
+	${4:void} ${5:function_name}()
+	{
+		${6}
+	}
+# function definition with one parameter with  Doxygen documentation
+snippet jdfun1
+options head
+	/**
+	 * @brief ${1:Brief function description here}
+	 *
+	 *  ${2:Detailed description of the function}
+	 *
+	 * @param $3 ${4:Parameter description}
+	 * @return ${5:Return parameter description}
+	 */
+	${6:void} ${7:function_name}(${8:Type} ${3:Parameter})
+	{
+		${9}
+	}
+# function definition with two parameters with  Doxygen documentation
+snippet jdfun2
+options head
+	/**
+	 * @brief ${1:Brief function description here}
+	 *
+	 *  ${2:Detailed description of the function}
+	 *
+	 * @param $3 ${4:Parameter description}
+	 * @param $5 ${6:Parameter description}
+	 * @return ${7:Return parameter description}
+	 */
+	${8:void} ${9:function_name}(${10:Type} ${3:Parameter}, ${11:Type} ${5:Parameter})
+	{
+		${12}
+	}
+# function definition with three parameters with  Doxygen documentation
+snippet jdfun3
+options head
+	/**
+	 * @brief ${1:Brief function description here}
+	 *
+	 *  ${2:Detailed description of the function}
+	 *
+	 * @param $3 ${4:Parameter description}
+	 * @param $5 ${6:Parameter description}
+	 * @param $7 ${8:Parameter description}
+	 * @return ${9:Return parameter description}
+	 */
+	${10:void} ${11:function_name}(${12:Type} ${3:Parameter}, ${13:Type} ${5:Parameter}, ${14:Type} ${7:Parameter})
+	{
+		${15}
+	}
+
+##
+# struct
+snippet jdst
+options head
+	/**
+	 * @struct $1
+	 * @brief ${3:Brief struct description}
+	 *
+	 *  ${4:Detailed description}
+	 */
+	struct ${1:`vim_snippets#Filename('$1_t', 'name')`} {
+		${2:Data} /**< ${4:Description} */
+	}${5: /* optional variable list */};
+
+# typedef struct
+snippet jdtds
+options head
+	/**
+	 * @struct $2
+	 * @brief ${5:Brief struct description}
+	 *
+	 *  ${6:Detailed description}
+	 */
+	typedef struct ${2:_$1 }{
+		m_${3:Data} /**< ${4:Description} */
+	} ${1:`vim_snippets#Filename('$1_t', 'name')`};
+
+snippet jdenum
+options head
+	/**
+	 * @enum $1
+	 *
+	 *  ${2:Detailed description}
+	 */
+	enum ${1:name} { ${0} };
+# typedef enum
+snippet jdtde
+options head
+	/**
+	 * @enum $2
+	 *
+	 *  ${4:Detailed description}
+	 */
+	typedef enum {
+		${1:Data} /**< ${3:Description} */
+	} ${2:foo};
+##
+# TODO section
+snippet jdtodo
+options head
+	/**
+	 * @todo: ${1:Todo description here}
+	 */
+
+#####################################################################
+## Miscellaneous
+#
+## neosnippets-snippet の switch 文でインデントがズレるのでその対策版
+snippet switch2
+options     head
+abbr        switch () {}
+    switch (${1:#:var}) {
+    case ${2}:
+        ${0:TARGET};
+        break;
+    }
