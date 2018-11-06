@@ -1,10 +1,40 @@
-njrc-eng-snippets
+Java Style Doxygen snippets
 ===================
+ snippets
 
-NJRC-ENG 用にカスタマイズした neosnippet用の snipettes.
+ - jdfi: file header
+ - jdfun0: function without argument
+ - jdfun1: function with 1 argument
+ - jdfun2: function with 2 arguments
+ - jdfun3: function with 3 arguments
+ - jdst: struct
+ - jdtds: typdef struct
+ - jdenum: enum
+ - jdtde: typdef enum
+ - jdtodo: ToDo
+ - switch2: switch with fixing miss-indenting
+
 
 Requirements
 ===================
 
 - Shougo/neosnippets
 - honza/vim-snippets
+
+Preparation
+===================
+
+  Change Copyright declaration in snippet 'jdfi' in 'sinppets/c.snippets'
+to yours if needed.
+
+```
+	/**
+	 * @file   
+     :
+	 * Copyright (c) `strftime("%Y")` <Change this to your name or company>
+	 */
+```
+
+Lisence
+===================
+This vim-plugin is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
