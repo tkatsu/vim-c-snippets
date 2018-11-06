@@ -1,6 +1,8 @@
-Java Style Doxygen snippets
+JavaDoc Style Doxygen C snippets
 ===================
- snippets
+ C source code completion for JavaDoc Style Doxygen worked on Vim.
+
+ Available snippets:
 
  - jdfi: file header
  - jdfun0: function without argument
@@ -12,8 +14,7 @@ Java Style Doxygen snippets
  - jdenum: enum
  - jdtde: typdef enum
  - jdtodo: ToDo
- - switch2: switch with fixing miss-indenting
-
+ - switch2: switch with fixing miss-indenting (Not concern with JavaDoc)
 
 Requirements
 ===================
@@ -21,20 +22,55 @@ Requirements
 - Shougo/neosnippets
 - honza/vim-snippets
 
-Preparation
+Installation/Setting
 ===================
 
-  Change Copyright declaration in snippet 'jdfi' in 'sinppets/c.snippets'
-to yours if needed.
+ - Install to your vim plugin directory.
 
-```
-	/**
-	 * @file   
-     :
-	 * Copyright (c) `strftime("%Y")` <Change this to your name or company>
-	 */
-```
+ - Set your copyright name to global variable 'g:my_copyright_name' in rc.
 
+   Example for dein plugin manager  
+   rc file: dein_lazy.toml 
+
+   ```
+   [[plugins]]
+   repo = 'tkatsu/vim-c-snippets'
+   if = 1
+   on_ft = ['c']
+   hook_source = '''
+   let g:my_copyright_name = 'My Corpolation'
+   '''
+   ```
+   See details https://github.com/tkatsu/vimfiles
+
+Usage
+===================
+Example for file header.
+
+ 1. On vim, type type i to enter insert-mode.
+ 2. Type jd, then several cantidates beggining with 'dj' appear.
+ 3. Select 'jdfi' by Control-N and Conrol-P key.
+ 4. Decide it by Control-K.  
+    File header template appears and cursor is on @breaf area.
+
+    ```
+    /**
+     * @file
+     * @brief  Brief file description here
+     *
+     *  Detailed description of the file
+     *
+     * @author   your name
+     * @date    2018-11-06
+     *
+     * Copyright (c) 2018 My Corpolation
+     */
+    ```
+ 5. Type your 'Brief file description' with single line.
+     Keep insert-mode and type Control-K. Cursor goes to next area.
+ 6. Type your text then type control-K.
+    Repeat these until completion is done.
+ 
 Lisence
 ===================
 This vim-plugin is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
